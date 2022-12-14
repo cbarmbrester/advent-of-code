@@ -24,16 +24,24 @@ for a in input:
             y[0] = temp[1]
         if temp[1] > y[1]:
             y[1] = temp[1]
-#h = y[1]+1             #part 1
-#w = x[1]-x[0]+center+1        #part 1
-#center = 0                     #part 1
-h = y[1]+3 #part 2
+
+#Part 1
+#center = 0                      
+#h = y[1]+1                      
+#w = x[1]-x[0]+center+1         
+
+#Part 2
+h = y[1]+3
 w = 1 + (2 * (y[1] + 3))
 center = (y[1] + 4) - (500 - x[0])
 y[1]+=2
+
 grid = np.full((h,w),0)
+
+#Part 2
 for a in range(len(grid[0])):
     grid[h-1][a] = 1
+
 for a in parsed:
     for step in range(len(a)):
         temp = [int(z) for z in a[step].split(',')]
