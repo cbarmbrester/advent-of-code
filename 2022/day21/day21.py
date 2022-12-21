@@ -17,8 +17,8 @@ def numeric(equation):
     if '+' in equation:
         y = equation.split('+')
         z = int(y[0])+int(y[1])
-    elif '-' in equation and re.search('[+*\/]', equation) == None:
-        y = equation.split('-')
+    elif 'minus' in equation:
+        y = equation.split('minus')
         z = int(y[0])-int(y[1])
     elif '*' in equation:
         y = equation.split('*')
@@ -34,7 +34,7 @@ while len(input) > 0:
         input.append(a)
         continue
     if re.search('[-+*\/]', a[0]) != None:
-        a[0] = numeric(a[0])
+        a[0] = numeric(a[0].replace('-','minus'))
     if a[1] == rootIndex:
         print('Part 1: ', a[0])
         break
@@ -55,7 +55,7 @@ while len(input) > 0 and lastChange < len(input) + 2:
         lastChange += 1
         continue
     if re.search('[-+*\/]', a[0]) != None:
-        a[0] = numeric(a[0])
+        a[0] = numeric(a[0].replace('-','minus'))
     if a[1] == rootIndex:
         print('Part 1: ', a[0])
         break
@@ -67,7 +67,6 @@ nextStep = 'root'
 solution = 0
 curSolution = 0
 temp = 0
-lastChange = 0
 
 while len(input) > 0:
     x = input.pop(0)
@@ -104,7 +103,7 @@ while len(input) > 0:
                 a[1] = '/'
             else:
                 a[1] = '*'
-            solution = numeric(str(solution) + a[1] + str(curSolution))
+            solution = numeric(str(solution) + a[1].replace('-', 'minus') + str(curSolution))
     else:
         input.append(x)
         
