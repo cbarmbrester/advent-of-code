@@ -40,5 +40,4 @@ for a in input:
             else:
                 last = int(b)
     total += 10 * int(first) + int(last)
-    print(first,last)
 print("Part 2: ", total)
