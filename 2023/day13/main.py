@@ -40,6 +40,7 @@ for i, line in enumerate(input):
     if found:
         part_1 += (100 * at)
     else:
+        found, at = mirror(list(zip(*grid[::-1])))
         if found:
             part_1 += at
     #Part 2
