@@ -9,7 +9,6 @@ total_1 = 0
 total_2 = 0
 mulOn = True
 
-
 for a in input:
     memory = re.findall("mul\(\d+,\d+\)", a)
     newInstructions = re.split("mul\(\d+,\d+\)", a)
